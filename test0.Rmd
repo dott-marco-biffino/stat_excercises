@@ -1,0 +1,45 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, results="hide")
+```
+
+```{r data_gen}
+n<- sample(5:20, size = 1)
+bottom<- sample(1:30, size = 1)
+top<- sample(40:100, size = 1)
+x<- sample(bottom:top, size = n)
+
+choice<- runif(1)
+if (choice > 0.5) {
+  res<- var(x)
+  req<- "variance"
+} else {
+  res<- sd(x)
+  req<- "standard deviation"
+}
+median_x <- median(x)
+```
+
+Question
+========
+
+Given the following data collected on a sample of xxx:
+
+`r paste(x, collapse = "; ")`,
+
+compute the `r req`.
+
+Solution
+========
+
+Correct answer: 
+
+the `r req` is `r round(res, 3)`
+
+Meta-information
+================
+extype: num
+exsolution: `r fmt(res)`
+exname: variance or standard deviation
+extol: 0.001
+

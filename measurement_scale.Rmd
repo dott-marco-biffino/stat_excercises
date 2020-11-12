@@ -1,0 +1,58 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, results="hide")
+library(tidyverse)
+```
+
+```{r data_gen}
+#nominal ordinal interval ratio
+
+sample_data<- tribble(~Variable, ~Scale, ~Note,
+                      "Purchase price of an apartment", "Ratio", NA,
+                      "Selling price of a house", "Ratio", NA,
+                      "Selling price of a barrel of crude oil", "Ratio", "See https://www.oil-price.net/", 
+                      "Purchase price of a barrel of crude  oil", "Ratio", "See https://www.oil-price.net/",
+                      "Place of birth", "Nominal", NA,
+                      "Place of residence", "Nominal", NA,
+                      "Eye color", "Nominal", NA,
+                      "Hair color", "Nominal", NA,
+                      "Educational attainment", "Ordinal", "See https://stats.oecd.org/glossary/detail.asp?ID=742",
+                      "Military rank", "Ordinal", "See https://en.wikipedia.org/wiki/Military_rank",
+                      "Temperature in °C", "Interval", "See https://en.wikipedia.org/wiki/Temperature",
+                      "Temperature in °F", "Interval", "See https://en.wikipedia.org/wiki/Temperature",
+                      "Calendar date", "Interval", "See https://en.wikipedia.org/wiki/Gregorian_calendar",
+                      "Number of books read in a year", "Ratio", NA,
+                      "Number of household's members", "Ratio", NA,
+                      "SAT score", "Interval", "See https://en.wikipedia.org/wiki/SAT",
+                      "Beck's Depression Inventory score", "Interval", "See https://en.wikipedia.org/wiki/Beck_Depression_Inventory",
+                      "The last airline you traveled with", "Nominal", NA)
+             
+
+n<- sample(1:nrow(sample_data), size = 1)
+variable<- sample_data$Variable[n]
+solution<- sample_data$Scale[n]
+if (is.na(sample_data$Note[n])) {
+  note<- ""
+} else {
+  note<- paste0(sample_data$Note[n], " for more information on this variable.")
+}
+```
+
+Question
+========
+
+What is the measurement scale of the following variable
+`r paste0("<", variable, ">?")`,
+
+
+Solution
+========
+
+Correct answer: 
+
+
+Meta-information
+================
+extype: schoice
+exsolution: `r `
+exname: measurement scale
